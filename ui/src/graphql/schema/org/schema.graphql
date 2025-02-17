@@ -1,0 +1,10 @@
+
+type Org {
+  id: String!
+  transactions: [Transaction!]!
+  stats: Stats!
+}
+
+type Query {
+  org: Org
+}

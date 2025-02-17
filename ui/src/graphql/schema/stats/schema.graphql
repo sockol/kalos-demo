@@ -1,0 +1,6 @@
+
+type Stats {
+  totalRevenue: Float!
+  highestPerformingSalesRep: String!
+  highestSellingRegion: String!
+}

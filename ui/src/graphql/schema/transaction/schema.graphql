@@ -1,0 +1,26 @@
+
+type Transaction {
+  id: String!
+  name: String!
+  amount: Float!
+  currency: String!
+  amountInUsd: Float!
+  # This should be an object ref
+  salesRep: String!
+  region: String!
+  
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+input TransactionInput {
+  name: String!
+  amount: Float!
+  currency: String!
+  salesRep: String!
+  region: String!
+}
+
+type Mutation {
+  createTransaction(input: TransactionInput!): Transaction
+}
