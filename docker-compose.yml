@@ -1,0 +1,29 @@
+services: 
+  api:
+    container_name: api
+    build: ./api
+    hostname: api
+    volumes:
+      - ./api:/api
+    environment:
+      EXCHANGE_API: a23450968e98c8c2fb413fa8
+  ui:
+    container_name: ui
+    build:
+      context: ./ui
+      target: runner
+    hostname: ui
+    environment:
+      NODE_ENV: development
+    volumes:
+      - ./ui:/home/ui 
+      - /ui/node_modules
+  nginx:
+    container_name: "nginx"
+    restart: always
+    image: nginx:1-alpine
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    
